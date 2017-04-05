@@ -31,6 +31,8 @@ eval.save <- function(expr, name, redo=F, verbose=T) {
                  })
         if (verbose) cat(paste(date(), " done.\n"))
         save(ret, file=filename)
+    } else {
+        ret <- load.list(filename)$ret
     }
     invisible(ret)
 }

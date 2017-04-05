@@ -5,5 +5,8 @@ library(roxygen2)
 
 document("eval.save")
 system("R CMD INSTALL eval.save")
-reload(inst("meffil"))
+reload(inst("eval.save"))
 
+setwd("eval.save")
+library(knitr)
+knit("README.rmd", "README.md")

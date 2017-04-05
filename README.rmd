@@ -1,0 +1,28 @@
+# eval.save
+
+`eval.save` is an R package that supports
+simple disk caching of expression evaluations.
+
+Below is an example:
+```{r}
+library(eval.save)
+eval.save.dir(".save")
+
+f <- function(i) i*i
+x <- eval.save(f(3), "f")
+print(x)
+y <- eval.save(f(4), "g")
+print(y)
+eval.saved("f")
+eval.saved("g")
+eval.ret("f")
+eval.ret("g")
+f(5)
+z <- eval.save(f(5), "f")
+print(z)
+eval.ret("f")
+eval.saved("h")
+z <- eval.save(f(5), "h")
+print(z)
+eval.ret("h")
+```
